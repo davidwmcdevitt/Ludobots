@@ -1,8 +1,13 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jan  5 11:28:08 2023
+import time
+import pybullet as p
 
-@author: davidmcdevitt
-"""
+physicsClient = p.connect(p.GUI)
 
+p.loadSDF("box.sdf")
+
+for i in range(1000):
+    p.stepSimulation()
+    time.sleep(1/60)
+    print(i)
+
+p.disconnect()
