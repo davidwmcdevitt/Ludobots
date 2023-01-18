@@ -3,9 +3,16 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy as np
-import math
-import random
+import constants as c
+from simulation import SIMULATION
 
+simulation = SIMULATION()
+
+simulation.run()
+
+
+
+'''
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
@@ -25,15 +32,6 @@ backLegSensorValues = np.zeros(1000)
 
 targetAngles = np.sin(np.linspace(-np.pi/4, np.pi/4, 1000) )
 
-amplitude_fl = np.pi*2
-frequency_fl = 10
-phaseOffset_fl = 0
-
-amplitude_bl = np.pi/4
-frequency_bl = 10
-phaseOffset_bl = np.pi/4
-
-
 for i in range(1000):
     p.stepSimulation()
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
@@ -43,7 +41,7 @@ for i in range(1000):
         bodyIndex = robotId,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = amplitude_fl * np.sin(frequency_fl * i + phaseOffset_fl),
+        targetPosition = c.amplitude_fl * np.sin(c.frequency_fl * i + c.phaseOffset_fl),
         maxForce = 500)
     
     
@@ -51,7 +49,7 @@ for i in range(1000):
         bodyIndex = robotId,
         jointName = "BackLeg_Torso",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = amplitude_bl * np.sin(frequency_bl * i + phaseOffset_bl),
+        targetPosition = c.amplitude_bl * np.sin(c.frequency_bl * i + c.phaseOffset_bl),
         maxForce = 500)
     
     time.sleep(1/360)
@@ -60,3 +58,4 @@ np.save("data/frontleg.npy",frontLegSensorValues)
 np.save("data/backleg.npy",backLegSensorValues)
 
 p.disconnect()
+'''
