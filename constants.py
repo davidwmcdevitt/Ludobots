@@ -9,3 +9,5 @@ phaseOffset_fl = 0
 amplitude_bl = np.pi/4
 frequency_bl = 10
 phaseOffset_bl = np.pi/4
+
+numberOfGenerations = 2

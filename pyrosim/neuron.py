@@ -135,6 +135,6 @@ class NEURON:
         self.Threshold()
         
     def Allow_Presynaptic_Neuron_To_Influence_Me(self, weight, value):
-        print(weight)
-        print(value)
+        #print(weight)
+        #print(value)
         return weight * value
