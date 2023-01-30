@@ -2,25 +2,51 @@ import numpy as np
 import pyrosim.pyrosim as pyrosim
 import random
 import os
+import time
 
 class SOLUTION:
     
-    def __init__(self):
+    def __init__(self,myID):
         self.weights = np.random.rand(3, 2)
         self.weights = self.weights * 2 - 1
         #print(self.weights)
+        self.myID = myID
+    
+    def set_ID(self, myID):
+        self.myID = myID
         
     def evaluate(self,mode):
         self.create_world()
         self.generate_body()
         self.generate_brain()
         
-        os.system("python3 simulate.py " + mode)
+        os.system("python simulate.py " + mode + " " + str(self.myID) + " " + " &")
         
         #os.system("python3 simulate.py " + mode)
-        fh = open("fitness.txt", "r")
+        fitnessFileName = "fitness"+str(self.myID)+".txt"
+        while not os.path.exists(fitnessFileName):
+            time.sleep(0.01)
+        fh = open("fitness"+str(self.myID)+".txt", "r")
         self.fitness = float(fh.read())
-        print(self.fitness)
+        #print(self.fitness)
+        fh.close()
+        
+    def start_simulation(self,mode):
+        self.create_world()
+        self.generate_body()
+        self.generate_brain()
+        
+        os.system("python simulate.py " + mode + " " + str(self.myID) + " " + " &")
+        
+    
+    def wait_for_simulation_to_end(self):
+        fitnessFileName = "fitness"+str(self.myID)+".txt"
+        while not os.path.exists(fitnessFileName):
+            time.sleep(0.01)
+        fh = open("fitness"+str(self.myID)+".txt", "r")
+        self.fitness = float(fh.read())
+        os.system("rm fitness"+str(self.myID)+".txt")
+        #print(self.fitness)
         fh.close()
         
     def mutate(self):
@@ -97,7 +123,7 @@ class SOLUTION:
         
     def generate_brain(self):
         
-        pyrosim.Start_NeuralNetwork("brain.nndf")
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         
