@@ -58,9 +58,11 @@ class NEURON:
 
         # self.Print_Type()
 
-        self.Print_Value()
+        #self.Print_Value()
 
         # print("")
+        
+        pass
 
     def Set_Value(self,value):
 
@@ -99,8 +101,9 @@ class NEURON:
        print(self.type)
 
     def Print_Value(self):
+        pass
 
-       print(self.value , " " , end="" )
+       #print(self.value , " " , end="" )
 
     def Search_For_Joint_Name(self,line):
 
@@ -135,6 +138,6 @@ class NEURON:
         self.Threshold()
         
     def Allow_Presynaptic_Neuron_To_Influence_Me(self, weight, value):
-        print(weight)
-        print(value)
+        #print(weight)
+        #print(value)
         return weight * value

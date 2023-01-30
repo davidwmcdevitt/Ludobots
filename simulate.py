@@ -5,10 +5,14 @@ import pyrosim.pyrosim as pyrosim
 import numpy as np
 import constants as c
 from simulation import SIMULATION
+import sys
 
-simulation = SIMULATION()
+directOrGui = sys.argv[1]
+
+simulation = SIMULATION(directOrGui)
 
 simulation.run()
+simulation.get_fitness()
 
 
 

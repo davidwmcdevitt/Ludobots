@@ -8,9 +8,12 @@ import constants as c
 
 class SIMULATION:
     
-    def __init__(self):
-        
-        self.physicsClient = p.connect(p.GUI)
+    def __init__(self,directOrGui):
+                
+        mode = p.GUI # p.DIRECT
+        if directOrGui == "DIRECT":
+            mode = p.DIRECT
+        self.physicsClient = p.connect(mode)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-90.8)
         
@@ -26,9 +29,13 @@ class SIMULATION:
             self.robot.sense(i)
             self.robot.think()
             self.robot.act(i)
-            time.sleep(1/60)
+            time.sleep(1/500)
             
     def __del__(self):        
         p.disconnect()
-        self.robot.motors.save_values()
-        self.robot.sensors.save_values()
+        #self.robot.motors.save_values()
+        #self.robot.sensors.save_values()
+        
+    def get_fitness(self):
+        self.robot.get_fitness()
+        #print("check1")
