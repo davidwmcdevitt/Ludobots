@@ -1,6 +1,7 @@
 import os
 from hillclimber import HILL_CLIMBER
 from parallelhc import PARALLEL_HILL_CLIMBER
+from reef import REEF
 
 for i in range(1):
     
@@ -11,3 +12,6 @@ for i in range(1):
     
     #os.system("python3 generate.py")
     #os.system("python3 simulate.py")
+    
+    #reef = REEF()
+    #reef.evolve()

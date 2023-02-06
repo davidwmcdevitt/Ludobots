@@ -66,11 +66,14 @@ class SOLUTION:
         width = 1
         height = 1
         
-        x = -2
-        y = -2
-        z = 0.5
-        
-        pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length,width,height])
+        for i in range(1):
+            x = random.randint(0, 10)
+            y = random.randint(0, 10)
+            z = 0.5
+            
+            name = "Box" + str(i)
+            
+            pyrosim.Send_Cube(name=name, pos=[x,y,z] , size=[length,width,height])
         
         
         pyrosim.End()
@@ -148,6 +151,7 @@ class SOLUTION:
         pyrosim.Send_Joint(name="RightLeg_RightLowerLeg", parent="RightLeg", child="RightLowerLeg", type="revolute", position=[1.0,0.0,0.0], jointAxis="0 1 0")
         
         pyrosim.Send_Cube(name="RightLowerLeg", pos=[0.0,0.0,-0.5], size=[0.2,0.2,1.0])
+        
     
     
         pyrosim.End()
@@ -157,7 +161,10 @@ class SOLUTION:
         
     def generate_brain(self):
         
+        
+        
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        
         
         pyrosim.Send_Sensor_Neuron(name=0, linkName="Torso")
         
@@ -189,7 +196,10 @@ class SOLUTION:
             for currentColumn in range(0,c.numMotorNeurons):
                 #w = 1-random.random()*2
                 pyrosim.Send_Synapse(sourceNeuronName=currentRow, targetNeuronName=currentColumn+c.numSensorNeurons, weight=self.weights[currentRow][currentColumn])
-    
+                
+        
         pyrosim.End()
+        
+        
         
          

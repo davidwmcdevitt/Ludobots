@@ -4,10 +4,72 @@ import constants as c
 import os 
 import numpy as np
 
-class PARALLEL_HILL_CLIMBER:
+class REEF:
     
     def __init__(self):
         
+  
+        self.parents = {}
+        self.nextAvailableID = 0
+        for i in range(c.populationSize):
+            self.parents[i] = SOLUTION(self.nextAvailableID)
+            self.nextAvailableID += 1
+            
+    def evaluate(self,solutions):
+        for i in range(c.populationSize):
+            solutions[i].start_simulation("GUI")
+        
+        for i in range(c.populationSize):
+            solutions[i].wait_for_simulation_to_end()
+            
+            
+        
+    def evolve(self):
+        
+        self.evaluate(self.parents)
+        
+        for currentGeneration in range(c.numberOfGenerations):
+            #print(currentGeneration)
+            self.evolve_for_one_generation("GUI")
+            
+    def evolve_for_one_generation(self, mode):
+        
+        
+        self.spawn()
+        self.mutate()
+        self.evaluate(self.children)
+        self.select()
+        self.Print()
+        
+    
+    def spawn(self):
+        self.children = {}
+        for i in range(c.populationSize):
+            self.children[i] = copy.deepcopy(self.parents[i])
+            self.children[i].set_ID(self.nextAvailableID)
+            self.nextAvailableID += 1
+            #print(self.children)
+    
+    def mutate(self):
+        for i in range(c.populationSize):
+            self.children[i].mutate()
+    
+    def select(self):
+        for i in self.parents.keys():
+            if self.children[i].fitness < self.parents[i].fitness:
+                self.parents[i] = self.children[i]
+            
+    def Print(self):
+        print()
+        for i in self.parents.keys():
+            print(self.parents[i].fitness, self.children[i].fitness)
+        print()
+            
+        
+        
+        
+        
+        '''
         os.system("rm brain*.nndf")
         os.system("rm fitness*.txt")
         
@@ -80,3 +142,4 @@ class PARALLEL_HILL_CLIMBER:
             solutions[i].wait_for_simulation_to_end()
             #print(self.parents[i].fitness)
         
+        '''
