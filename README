@@ -1,1 +1,3 @@
 This is a README file!
+
+This work was an attempted exploration of bipedal walking behavior. A humanoid-esque robot was created in pybullet with a head, torso, two arms, and two legs (comprsied of a quad, calf, and foot).
