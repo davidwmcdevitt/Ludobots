@@ -12,7 +12,8 @@ class ROBOT:
     def __init__(self,solutionID):
         
         
-        self.robotId = p.loadURDF("body.urdf")
+        self.robotId = p.loadURDF("body" + str(solutionID) + ".urdf")
+        os.system("rm body"+str(solutionID)+".urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.prepare_to_sense()
         self.prepare_to_act()
@@ -30,6 +31,10 @@ class ROBOT:
     def sense(self, t):
         for i in self.sensors.values():
             i.get_value(t)
+            
+    def check_head(self,t):
+        self.head = pyrosim.Get_Touch_Sensor_Value_For_Link("Head")
+        #print(self.head)
             
             
     def prepare_to_act(self):
@@ -56,8 +61,12 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robotId,0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
+        yCoordinateOfLinkZero = positionOfLinkZero[1]
+        zCoordinateOfLinkZero = positionOfLinkZero[2]
+        fitness = abs(xCoordinateOfLinkZero) * abs(yCoordinateOfLinkZero) * 1/(1-zCoordinateOfLinkZero)
+        print(zCoordinateOfLinkZero)
         fh  = open("tmp"+str(self.solutionID)+".txt", "w")
-        fh.write(str(xCoordinateOfLinkZero))
+        fh.write(str(fitness))
         fh.close()
         os.system("mv tmp"+str(self.solutionID)+".txt fitness"+str(self.solutionID)+".txt")
         #print(xCoordinateOfLinkZero)

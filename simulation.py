@@ -15,7 +15,7 @@ class SIMULATION:
             mode = p.DIRECT
         self.physicsClient = p.connect(mode)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
-        p.setGravity(0,0,-90.8)
+        p.setGravity(0,0,c.gravity)
         
         self.world = WORLD()
         self.robot = ROBOT(solutionID)
@@ -29,6 +29,7 @@ class SIMULATION:
             self.robot.sense(i)
             self.robot.think()
             self.robot.act(i)
+            self.robot.check_head(i)
             time.sleep(1/500)
             
     def __del__(self):        

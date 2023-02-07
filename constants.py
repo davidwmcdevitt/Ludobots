@@ -1,6 +1,8 @@
 import numpy as np 
 
-iterations = 1000
+iterations = 10000
+
+gravity = -90.8
 
 amplitude_fl = np.pi*2
 frequency_fl = 10
@@ -16,7 +18,10 @@ populationSize = 1
 
 numSensorNeurons = 4
 
-numMotorNeurons = 8
+numMotorNeurons = 6
 
+numJumps = 2
 
-motorJointRange = 1
+height = 0
+
+motorJointRange = 2
