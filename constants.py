@@ -12,9 +12,9 @@ amplitude_bl = np.pi/4
 frequency_bl = 10
 phaseOffset_bl = np.pi/4
 
-numberOfGenerations = 1
+numberOfGenerations = 10
 
-populationSize = 1
+populationSize = 10
 
 numSensorNeurons = 4
 
