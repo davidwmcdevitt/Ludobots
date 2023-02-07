@@ -1,3 +1,16 @@
 This is a README file!
 
 This work was an attempted exploration of bipedal walking behavior. A humanoid-esque robot was created in pybullet with a head, torso, two arms, and two legs (comprsied of a quad, calf, and foot).
+
+I tried a number of variations of sensor placement, ultimately the best option was to limit the sensors to only the feet. Including sensors in all of the limbs led to a very discombobulated robot.
+
+The root node is the head of the robot. Fitness function was designed to support movement while also remaining upright. The final form of the function is:
+
+(X Coordinate ^ 2 + Y Coordinate ^ 2) * 1 / (1 -  Z Coordinate)
+
+This equation is designed to reward movement, regardless of direction but emphasizing distance from the origin (e.g., ending at 2,0 is better than ending at 1,1). The sum of the squared X and Y coordinate is weighted by 4 / (4 - Z Coordinate), which penalizes simulations where the robot falls to the ground (4 is the initial height of the robot's head).
+
+The number of steps was increased so that robots have the time to walk further rather than make forward progress by falling to the ground.
+
+To run this simulation, simply run main.py
+
