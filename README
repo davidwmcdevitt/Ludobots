@@ -2,3 +2,4 @@ This is a READEME file!
 
 Snakes are generated off of a DNA sequence that is randomly generated before the generate body/brain commands are called. DNA includes randomization of link dimensions AND joint type. Noticeable challenge of snakes falling into a "steady state" sleep where their sensor states don't vary in a manner that causes motion. In the video I submitted I had to give the snake a judge to walk.... but it walks nicely.
 
+Like before - simply execute main.py to repeat the simulation.
