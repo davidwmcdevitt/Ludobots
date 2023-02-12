@@ -10,7 +10,7 @@ amplitude_bl = np.pi/4
 frequency_bl = 10
 phaseOffset_bl = np.pi/4
 
-numberOfGenerations = 10
+numberOfGenerations = 25
 
 populationSize = 10
 

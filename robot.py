@@ -62,7 +62,7 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         yCoordinateOfLinkZero = positionOfLinkZero[1]
-        fitness = xCoordinateOfLinkZero ** 2 + yCoordinateOfLinkZero ** 2
+        fitness = yCoordinateOfLinkZero
         fh  = open("tmp"+str(self.solutionID)+".txt", "w")
         fh.write(str(fitness))
         fh.close()
