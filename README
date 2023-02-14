@@ -2,7 +2,7 @@ This is a branch designed to generate one dimensional snakes in Pyrosim.
 
 A snake is generated off of a randomly generated DNA sequenve. The DNA sequence is a Python dictionary with the following parameters:
   1. Number of Links
-    a. This is a random integer between 6 and 15. The upper and lower limits are arbitrary at the moment, simply set at levels that will generate snakes that are complicated enough to be snakes but not too complicated to manage in Pyrosim.
+    a. This is a random integer between 6 and 30. The upper and lower limits are arbitrary at the moment, simply set at levels that will generate snakes that are complicated enough to be snakes but not too complicated to manage in Pyrosim.
   2. Link Length
     a. X coordinate of a particular link, instantiated as a random value betwee 0 and 1.
   3. Link Width
@@ -14,5 +14,18 @@ A snake is generated off of a randomly generated DNA sequenve. The DNA sequence 
 
 From this initialized DNA sequence, a body and corresponding brain is generated. During the body generation there is an additional randomization step for joint type. At the moment the simulation limits joint type to revolute, prismatic (sliding), and fixed. Inclusion of other joint types causes snake links to move beyond the confines of their connected links (i.e., a joint that rotates further than the area defined by its connected links - creating a disjointed snake. This issue is still present in some instances of snakes, since Pyrosim joint behavior has serious visibility flaws).
 
+Brains are generated to provide links between all sensors and motors present in the snake. Experiments in hidden neurons were conducted but not included in this section but are being explored for the final project.
+
+Below is an image of a simple snake and corresponding DNA sequence:
+
+
+-------------------------DNA-------------------------
+Num_links = 5
+
+Link Length = [1, 0.75, 0.5, 0.5, 0.25]
+Link Width = [1, 0.5, 0.25, 0.25, 0.25]
+Link Height = [1, 1, 1, 1, 1]
+Sensor = [1, 0, 0, 0, 1]
+-----------------------------------------------------
 
 Like before - simply execute main.py to repeat the simulation.
