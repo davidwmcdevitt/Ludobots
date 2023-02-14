@@ -200,7 +200,7 @@ class SOLUTION:
     def generate_dna(self):
         
         self.dna = {}
-        self.dna['num_links'] = random.randint(6,15)
+        self.dna['num_links'] = random.randint(6,30)
         x_link = []
         y_link = []
         z_link = []
@@ -208,10 +208,10 @@ class SOLUTION:
         for i in range(self.dna['num_links']):
             x_link.append(random.random())
             y_link.append(random.random())
-            z_link.append(random.random())
+            #z_link.append(random.random())
             #x_link.append(1)
             #y_link.append(1)
-            #z_link.append(1)
+            z_link.append(1)
             sensors.append(random.randint(0,1))
             
         self.dna['x_link'] = x_link
@@ -248,7 +248,11 @@ class SOLUTION:
             parentName = linkName
             linkName = "Link" + str(i)
             
-            pos_y = self.dna['y_link'][z] + self.dna['y_link'][i]/2
+            #pos_y = self.dna['y_link'][z] + self.dna['y_link'][i]/2
+            pos_y = self.dna['y_link'][i]/2
+            if z == 0:
+                pass
+                #pos_y = 0
             
             col = "cyan"
             if self.dna['sensors'][i] == 1:
@@ -261,14 +265,19 @@ class SOLUTION:
             joint_y = self.dna['y_link'][z]
             joint_z = 0
             
+            if z == 0:
+                joint_y = self.dna['y_link'][z]/2
+            if z == 1:
+                joint_y = self.dna['y_link'][z]
+            
             #print(joint_x,joint_y,joint_z)
             
-            temp = random.randint(0,2)*2
-            jointAxis ="0 0 0"
-            jointAxis = jointAxis[:temp] + "1" + jointAxis[temp + 1:]
+            #temp = random.randint(0,1)*2
+            jointAxis ="1 0 1"
+            #jointAxis = jointAxis[:temp] + "1" + jointAxis[temp + 1:]
             #joint_types = ["revolute","continuous","prismatic","fixed","floating","planar"]
-            joint_types = ["revolute","prismatic","fixed","floating","planar"]
-            temp = random.randint(0,4)
+            joint_types = ["revolute","prismatic","fixed"]
+            temp = random.randint(0,2)
             jointType = joint_types[temp]
             
             pyrosim.Send_Joint(name = jointName, parent = parentName, child = linkName, type=jointType, position=[joint_x,joint_y,joint_z], jointAxis=jointAxis)

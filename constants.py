@@ -12,11 +12,11 @@ phaseOffset_bl = np.pi/4
 
 numberOfGenerations = 25
 
-populationSize = 10
+populationSize = 5
 
 numSensorNeurons = 4
 
 numMotorNeurons = 8
 
 
-motorJointRange = 1
+motorJointRange = 0.65
