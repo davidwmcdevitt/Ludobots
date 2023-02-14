@@ -28,6 +28,6 @@ Link Height = [1, 1, 1, 1, 1]
 Sensor = [1, 0, 0, 0, 1]
 -----------------------------------------------------
 
-![alt text](https://github.com/davidwmcdevitt/Luudobots/blob/1d_snake/Example Snake.png?raw=true)
+![alt text]('https://github.com/davidwmcdevitt/Luudobots/blob/1d_snake/Example Snake.png'?raw=true)
 
 Like before - simply execute main.py to repeat the simulation.
