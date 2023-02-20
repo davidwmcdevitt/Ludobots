@@ -10,13 +10,17 @@ amplitude_bl = np.pi/4
 frequency_bl = 10
 phaseOffset_bl = np.pi/4
 
-numberOfGenerations = 25
+numberOfGenerations = 10
 
-populationSize = 5
+populationSize = 10
 
 numSensorNeurons = 4
 
 numMotorNeurons = 8
 
 
-motorJointRange = 0.65
+motorJointRange = np.pi
+
+base_walking_frequency = 440
+amplitude = 1.5
+walking_cycle = 44

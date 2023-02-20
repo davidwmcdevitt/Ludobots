@@ -67,7 +67,7 @@ class PARALLEL_HILL_CLIMBER:
         print()
         
     def show_best(self):
-        m = np.argmin([self.parents[i].fitness for i in self.parents.keys()])
+        m = np.argmax([self.parents[i].fitness for i in self.parents.keys()])
         print("Fitness: " + str(self.parents[m].fitness))
         self.parents[m].start_simulation("GUI")
         #self.parent.evaluate("GUI")
