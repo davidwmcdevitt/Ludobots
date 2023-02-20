@@ -23,6 +23,7 @@ class ROBOT:
         self.nn = NEURAL_NETWORK("tardigrade_noggin" + str(solutionID) + ".nndf")
         #os.system("rm brain"+str(solutionID)+".nndf")
         self.solutionID = solutionID
+        self.alive = True
 
         
     def prepare_to_sense(self):
@@ -36,6 +37,26 @@ class ROBOT:
     def sense(self, t):
         for i in self.sensors.values():
             i.get_value(t)
+            
+            
+    def check_head(self, t):
+        
+        if t == 1:
+            alive = True
+         
+            
+            
+        check_head = pyrosim.Get_Touch_Sensor_Value_For_Link("Head")
+        
+        #print(check_head)
+        if 'alive' in locals():
+            if check_head == 1 & alive == True:
+                alive = False
+            else:
+                alive = True
+            
+            #print(alive)
+            return alive
             
             
     def prepare_to_act(self):
@@ -64,7 +85,8 @@ class ROBOT:
                 #print(self.nn.Get_Value_Of(neuron))
                 #amplitude_fl * np.sin(frequency_fl * i + phaseOffset_fl)
                 #desiredAngle = np.sin(c.base_walking_frequency *self.nn.Get_Value_Of(neuron) * c.motorJointRange
-                angle_index = wave_indices[neuron] + math.ceil(c.walking_cycle/10)
+                angle_index = wave_indices[neuron] + math.ceil(c.walking_cycle/5 * self.nn.Get_Value_Of(neuron))
+                #print(self.nn.Get_Value_Of(neuron))
                 #print(angle_index)
                 if angle_index > c.walking_cycle - 1:
                     angle_index = angle_index - c.walking_cycle
@@ -75,6 +97,10 @@ class ROBOT:
                 desiredAngle = wave[angle_index]
                 
                 wave_indices[neuron] = angle_index
+                
+                if pyrosim.Get_Touch_Sensor_Value_For_Link("Head") == 1 or self.alive == False:
+                    desiredAngle = 0
+                    self.alive = False
                 
                 #desiredAngle = self.nn.Get_Value_Of(neuron) * c.motorJointRange
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuron)
@@ -92,7 +118,7 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         yCoordinateOfLinkZero = positionOfLinkZero[1]
-        fitness = xCoordinateOfLinkZero
+        fitness = yCoordinateOfLinkZero
         fh  = open("tmp"+str(self.solutionID)+".txt", "w")
         fh.write(str(fitness))
         fh.close()

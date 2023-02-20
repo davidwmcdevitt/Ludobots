@@ -26,6 +26,7 @@ class SIMULATION:
         for i in range(c.iterations):
             #print(i)
             p.stepSimulation()
+            #alive = self.robot.check_head(i)
             self.robot.sense(i)
             self.robot.think()
             self.robot.act(i)

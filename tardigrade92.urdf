@@ -24,7 +24,7 @@
     <joint name="Head_Link0" type="fixed">
        <parent link="Head"/>
        <child  link="Link0"/>
-       <origin rpy="0 0 0" xyz="0 0 1" />
+       <origin rpy="0 0 0" xyz="0 0 0.9" />
      <axis xyz="1 0 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
@@ -54,7 +54,7 @@
        <parent link="Link0"/>
        <child  link="Link0Right"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="0 1 1"/>
+     <axis xyz="1 1 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Link0Right">
@@ -83,7 +83,7 @@
        <parent link="Link0"/>
        <child  link="Link0Left"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="0 1 1"/>
+     <axis xyz="1 1 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Link0Left">
@@ -199,7 +199,7 @@
        <parent link="Link1"/>
        <child  link="Link1Right"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="0 1 1"/>
+     <axis xyz="1 1 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Link1Right">
@@ -228,7 +228,7 @@
        <parent link="Link1"/>
        <child  link="Link1Left"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="0 1 1"/>
+     <axis xyz="1 1 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Link1Left">
@@ -344,7 +344,7 @@
        <parent link="Link2"/>
        <child  link="Link2Right"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="0 1 1"/>
+     <axis xyz="1 1 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Link2Right">
@@ -373,7 +373,7 @@
        <parent link="Link2"/>
        <child  link="Link2Left"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="0 1 1"/>
+     <axis xyz="1 1 1"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Link2Left">

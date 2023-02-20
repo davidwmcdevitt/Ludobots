@@ -83,7 +83,7 @@ class SOLUTION:
         y = -2
         z = 0.5
         
-        pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length,width,height])
+        #pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length,width,height])
         
         
         pyrosim.End()
@@ -342,7 +342,7 @@ class SOLUTION:
         ''' GENERATE DNA '''
         
         self.dna = {}
-        self.dna['num_links'] = random.randint(2,8) 
+        self.dna['num_links'] = random.randint(2,3) 
         self.dna['size'] = random.randint(1,1) #This could be a continuous value later
         
         angles = []
@@ -397,7 +397,7 @@ class SOLUTION:
                 
                 pyrosim.Send_Cube(name= "Head", pos=[0,0,2*self.dna['size']], size=[self.dna['size'],self.dna['size'],self.dna['size']], col = "green")
                 
-                pyrosim.Send_Joint(name = "Head_Link0", parent = "Head", child = "Link0", type="fixed", position=[0,0,self.dna['size']], jointAxis="1 0 1")
+                pyrosim.Send_Joint(name = "Head_Link0", parent = "Head", child = "Link0", type="fixed", position=[0,0,self.dna['size']-0.1], jointAxis="1 0 1")
                 
                 pyrosim.Send_Cube(name= "Link0", pos=[0,0,0], size=[self.dna['size'],self.dna['size'],self.dna['size']], col = "cyan")
                 
