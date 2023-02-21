@@ -12,6 +12,10 @@ This assignments goal was to "expand the design space of your random creature ge
       
       Examples of tardigrade bodies:
       
+      <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235113-8b4e5d8b-955c-49f5-b118-1d924bbcedfc.png">
+      
+      <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235250-4055d155-cbcc-402b-9877-3308f0fe0b74.png">
+
 
       b. Brain and Movement
 
@@ -25,12 +29,12 @@ This assignments goal was to "expand the design space of your random creature ge
 
     The purpose for this design is to ensure that tardigrade's legs are constantly moving in a walking motion. Input from the tardigrade's brain is incorporated into the tardigrade's movement by the pace at which the angle moves along (in a positive or negative direction) the x-axis of the sinusoidal wave. If a neuron is delivering a small positive value, the legs will move along the sinusoidal wave at a slow pace. If a neuron is delivering a large positive value, the legs will move along sinusoidal wave at a faster pace. If a neuron is delivering a negative value, the legs will move backwards along the sinusoidal wave at a pace corresponding. In combination, this allows each leg of the tardigrade to move in a forward or backwards motion in a manner that corresponds to forwards or backwards walking behavior. The purpose for this design is to allow for external sensors to influence walking behavior without undermining the core ability of a tardigrade to walk. 
     
-    Video of evolved tardigrade walking:
+    Video of evolved tardigrade walking: https://youtu.be/TNA-IDKolBk
     
     c. Death
     
     A large part of the exploration in this stage had to do with the the manner at which the tardigrade is able to interact with the environment around it. This allowed me to build in the feature for a tardigrade to deactivate - or - to use a more lifelike nomenclature - a tardigrade can die. Death is triggered by a new function that checks the sensor value of the head at a given step-interval. If the head is making contact with anything other than its own body, it triggers the mechanism that "kills" the robot ("killing" the robot is completed by freezing all motors, leaving it inert until the end of the simulation). At the moment, this encourages the act of upright walking, rather than flailing around wildly to generate movement away from a spawn point. For the final project, this "kill" switch will be used to trigger death by proximity to some other object, or , a "predator."
     
-    Video of a tardigrade's "death" mechanism being triggered:
+    Video of a tardigrade's "death" mechanism being triggered: https://youtu.be/RoqIM0av1aI 
 
 
