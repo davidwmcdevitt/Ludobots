@@ -16,10 +16,11 @@ A tardigrade's brain consists of a sensor neuron in its head, and sensor neurons
  
  ![image](https://user-images.githubusercontent.com/31931152/220223503-ea92d8e3-26c7-43d8-a149-1f039dd33f15.png)
 
-At the next step-interval in the simulations sequence
+At the next step-interval in the simulations sequence, the angle of the joint is designated to be X number of steps away from the original point. The plot below has a second point that is 5 steps away from the original point.
 
-  ![image](https://user-images.githubusercontent.com/31931152/220222546-509ba4bb-ee03-4ceb-8443-39847740339a.png)
+ ![image](https://user-images.githubusercontent.com/31931152/220222546-509ba4bb-ee03-4ceb-8443-39847740339a.png)
 
+The purpose for this design is to ensure that tardigrade's legs are constantly moving in a walking motion. Input from the tardigrade's brain is incorporated into the tardigrade's movement by the pace at which the angle moves along (in a positive or negative direction) the x-axis of the sinusoidal wave. If a neuron is delivering a small positive value, the legs will move along the sinusoidal wave at a slow pace. If a neuron is delivering a large positive value, the legs will move along sinusoidal wave at a faster pace. If a neuron is delivering a negative value, the legs will move backwards along the sinusoidal wave at a pace corresponding. In combination, this allows each leg of the tardigrade to move in a forward or backwards motion in a manner that corresponds to forwards or backwards walking behavior. 
 
 3. Movement
 
