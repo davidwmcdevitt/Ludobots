@@ -11,6 +11,9 @@ This assignments goal was to "expand the design space of your random creature ge
       A tardigrade is a randomly generated insect-like creature that will be evolving attraction/avoidance behavior from a predator in my final project. Their  body consists of head, which contains a sensor, a randomly generated number of body links, and the random presence of legs or no legs on that body link. The legs of a respective body link always generate in perpindicular pairs, and consist of two segments connected at a fixed right angle.
       
       Examples of tardigrade bodies:
+      
+      <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235113-8b4e5d8b-955c-49f5-b118-1d924bbcedfc.png">
+
       <img width="590" alt="image" src="https://user-images.githubusercontent.com/31931152/220234970-1a66c197-eadc-4783-a91d-684e311e43ee.png">
 
       
