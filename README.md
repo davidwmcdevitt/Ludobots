@@ -13,10 +13,9 @@ This assignments goal was to "expand the design space of your random creature ge
       Examples of tardigrade bodies:
       
       <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235113-8b4e5d8b-955c-49f5-b118-1d924bbcedfc.png">
-
-      <img width="590" alt="image" src="https://user-images.githubusercontent.com/31931152/220234970-1a66c197-eadc-4783-a91d-684e311e43ee.png">
-
       
+      <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235250-4055d155-cbcc-402b-9877-3308f0fe0b74.png">
+
 
       b. Brain and Movement
 
