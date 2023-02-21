@@ -19,6 +19,8 @@ class SIMULATION:
         
         self.world = WORLD()
         self.robot = ROBOT(solutionID)
+        # HERE FOR MULTIPLE ROBOTS
+        #self.robot2 = ROBOT(solutionID)
         
         
     def run(self):

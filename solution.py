@@ -41,7 +41,7 @@ class SOLUTION:
         #self.generate_dna()
         #self.generate_snake()
         #self.generate_body()
-        #self.generate_brain()
+        #self.generate_brain())
         self.generate_tardigrade(self.myID)
         
         os.system("python simulate.py " + mode + " " + str(self.myID) + " " + " &")
@@ -338,11 +338,10 @@ class SOLUTION:
         
     def generate_tardigrade(self, myID):
         
-        
         ''' GENERATE DNA '''
         
         self.dna = {}
-        self.dna['num_links'] = random.randint(2,3) 
+        self.dna['num_links'] = random.randint(2,8) 
         self.dna['size'] = random.randint(1,1) #This could be a continuous value later
         
         angles = []
@@ -395,9 +394,9 @@ class SOLUTION:
             
             if self.dna['angles'][i] == 'head':
                 
-                pyrosim.Send_Cube(name= "Head", pos=[0,0,2*self.dna['size']], size=[self.dna['size'],self.dna['size'],self.dna['size']], col = "green")
+                pyrosim.Send_Cube(name= "Head", pos=[0 ,0 ,2*self.dna['size']], size=[self.dna['size'],self.dna['size'],self.dna['size']], col = "green")
                 
-                pyrosim.Send_Joint(name = "Head_Link0", parent = "Head", child = "Link0", type="fixed", position=[0,0,self.dna['size']-0.1], jointAxis="1 0 1")
+                pyrosim.Send_Joint(name = "Head_Link0", parent = "Head", child = "Link0", type="fixed", position=[0,0,self.dna['size']], jointAxis="1 0 1")
                 
                 pyrosim.Send_Cube(name= "Link0", pos=[0,0,0], size=[self.dna['size'],self.dna['size'],self.dna['size']], col = "cyan")
                 
@@ -409,13 +408,13 @@ class SOLUTION:
                 
                 #pyrosim.Send_Cube(name= "Link0yNode", pos=[0,0.1,0], size=[0.1,0.1,0.1], col = "cyan")
                 
-                pyrosim.Send_Joint(name = "Link0_Link0Right", parent = "Link0", child = "Link0Right", type = "revolute", position = [0,0,0], jointAxis="1 1 1")
+                pyrosim.Send_Joint(name = "Link0_Link0Right", parent = "Link0", child = "Link0Right", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                 #pyrosim.Send_Joint(name = "Link0yNode_Link0Right", parent = "Link0yNode", child = "Link0Right", type = "revolute", position = [0,0,0], jointAxis="0 1 0")
                 #pyrosim.Send_Joint(name = "Link0zNode_Link0Right", parent = "Link0zNode", child = "Link0Right", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                 
                 pyrosim.Send_Cube(name = "Link0Right", pos = [self.dna['size'],0,0], size = [self.dna['size'], legSize, legSize], col = "cyan")
                 
-                pyrosim.Send_Joint(name = "Link0_Link0Left", parent = "Link0", child = "Link0Left", type = "revolute", position = [0,0,0], jointAxis="1 1 1")
+                pyrosim.Send_Joint(name = "Link0_Link0Left", parent = "Link0", child = "Link0Left", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                 #pyrosim.Send_Joint(name = "Link0yNode_Link0Left", parent = "Link0yNode", child = "Link0Left", type = "revolute", position = [0,0,0], jointAxis="0 1 0")
                 #pyrosim.Send_Joint(name = "Link0zNode_Link0Left", parent = "Link0zNode", child = "Link0Left", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                 
@@ -450,13 +449,13 @@ class SOLUTION:
                     
                     #pyrosim.Send_Cube(name= linkName + "yNode", pos=[0,0.1,0], size=[0.1,0.1,0.1], col = "cyan")
                     
-                    pyrosim.Send_Joint(name = linkName + "_" + linkName + "Right", parent = linkName, child = linkName + "Right", type = "revolute", position = [0,0,0], jointAxis="1 1 1")
+                    pyrosim.Send_Joint(name = linkName + "_" + linkName + "Right", parent = linkName, child = linkName + "Right", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                     #pyrosim.Send_Joint(name = linkName + "yNode_" + linkName + "Right", parent = linkName + "yNode", child = linkName + "Right", type = "revolute", position = [0,0,0], jointAxis="0 1 0")
                     #pyrosim.Send_Joint(name = linkName + "zNode_" + linkName + "Right", parent = linkName+ "zNode", child = linkName + "Right", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                     
                     pyrosim.Send_Cube(name = linkName + "Right", pos = [self.dna['size'],0,0], size = [self.dna['size'], legSize, legSize], col = "cyan")
                     
-                    pyrosim.Send_Joint(name = linkName + "_" + linkName + "Left", parent = linkName, child = linkName + "Left", type = "revolute", position = [0,0,0], jointAxis="1 1 1")
+                    pyrosim.Send_Joint(name = linkName + "_" + linkName + "Left", parent = linkName, child = linkName + "Left", type = "revolute", position = [0,0,0], jointAxis="0 1 1")
                     
                     #pyrosim.Send_Joint(name = "Link0_Link0Left", parent = "Link0", child = "Link0_Left", type = "revolute", position = [self.dna['size'],0,self.dna['size']/2], jointAxis="0 0 1")
                     #pyrosim.Send_Joint(name = linkName + "yNode_" + linkName + "Left", parent = linkName + "yNode", child = linkName + "Left", type = "revolute", position = [0,0,0], jointAxis="0 1 0")
@@ -495,22 +494,22 @@ class SOLUTION:
         
         neuron_id = 0
         
+        pyrosim.Send_Sensor_Neuron(name=neuron_id, linkName="Head")
+        neuron_id += 1
+        
         for i in range(numLinks):
             
             linkName = "Link" + str(i)
             
             if self.dna['angles'][i] == 'head':
+                pass
                 
-                pyrosim.Send_Sensor_Neuron(name=neuron_id, linkName="Head")
+                
+            if self.dna['legs'][i] == 1:
+                pyrosim.Send_Sensor_Neuron(name=neuron_id, linkName= linkName + "RightFoot")
                 neuron_id += 1
-                
-            else:
-                
-                if self.dna['legs'][i] == 1:
-                    pyrosim.Send_Sensor_Neuron(name=neuron_id, linkName= linkName + "RightFoot")
-                    neuron_id += 1
-                    pyrosim.Send_Sensor_Neuron(name=neuron_id, linkName= linkName + "LeftFoot")
-                    neuron_id += 1
+                pyrosim.Send_Sensor_Neuron(name=neuron_id, linkName= linkName + "LeftFoot")
+                neuron_id += 1
             
             
             
