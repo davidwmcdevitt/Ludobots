@@ -13,8 +13,8 @@ A tardigrade is a randomly generated insect-like creature that will be evolving 
   b. Brain and Movement
   
 A tardigrade's brain consists of a sensor neuron in its head, and sensor neurons in the outer segment of each of its legs (its "foot"). Unlike previous simulations, the tardigrade's legs move in constant sinusoidal motion. A sinusoidal wave with amplitude equal to the maximum joint angle is generated and divided into walking steps. At each step-interval, the angle of a joint is designated as the value of a given step on the sinusoidal wave. Here is a plot showing the angle.
-    
-  ![image](https://user-images.githubusercontent.com/31931152/220221906-39a90635-4ab4-4dff-95c4-224cdaeaf2f5.png)
+ 
+ ![image](https://user-images.githubusercontent.com/31931152/220223503-ea92d8e3-26c7-43d8-a149-1f039dd33f15.png)
 
 At the next step-interval in the simulations sequence
 
