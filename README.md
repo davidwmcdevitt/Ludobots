@@ -8,15 +8,18 @@ This assignments goal was to "expand the design space of your random creature ge
 
   a. Body
 
-    A tardigrade is a randomly generated insect-like creature that will be evolving attraction/avoidance behavior from a predator in my final project. Their  body consists of head, which contains a sensor, a randomly generated number of body links, and the random presence of legs or no legs on that body link. The legs of a respective body link always generate in perpindicular pairs, and consist of two segments connected at a fixed right angle.
+A tardigrade is a randomly generated insect-like creature that will be evolving attraction/avoidance behavior from a predator in my final project. Their  body consists of head, which contains a sensor, a randomly generated number of body links, and the random presence of legs or no legs on that body link. The legs of a respective body link always generate in perpindicular pairs, and consist of two segments connected at a fixed right angle.
 
-  b. Brain Movement
+  b. Brain and Movement
   
-    A tardigrade's brain consists of a sensor neuron in its head, and sensor neurons in the outer segment of each of its legs (its "foot"). Unlike previous simulations, the tardigrade's legs move in constant sinusoidal motion. A sinusoidal wave with amplitude equal to the maximum joint angle is generated and divided into walking steps. At each step-interval, the angle of a joint is designated as the value of a given step on the sinusoidal wave. Here is a plot showing the angle 
+A tardigrade's brain consists of a sensor neuron in its head, and sensor neurons in the outer segment of each of its legs (its "foot"). Unlike previous simulations, the tardigrade's legs move in constant sinusoidal motion. A sinusoidal wave with amplitude equal to the maximum joint angle is generated and divided into walking steps. At each step-interval, the angle of a joint is designated as the value of a given step on the sinusoidal wave. Here is a plot showing the angle.
     
   ![image](https://user-images.githubusercontent.com/31931152/220221906-39a90635-4ab4-4dff-95c4-224cdaeaf2f5.png)
 
-  
+At the next step-interval in the simulations sequence
+
+  ![image](https://user-images.githubusercontent.com/31931152/220222546-509ba4bb-ee03-4ceb-8443-39847740339a.png)
+
 
 3. Movement
 
