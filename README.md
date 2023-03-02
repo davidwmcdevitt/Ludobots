@@ -10,7 +10,7 @@ This project will feature an evolutionary combat tournament between pairs of gen
 
 In every given simulation, two organisms will be present on adjacent platforms featuring different body generations. As illustrated below (same color key applies below):
 
-[Image link of matchup diagram]
+![Screenshot](matchup_diagram.jpeg)
 
 The evolved behavior will be a combat simulation between the two organisms in a given simulation. At the beginning of a simulation, both organisms will begin moving until one organism "kills" another by making contact with its head (or a predetermined time cap is reached). 
 
