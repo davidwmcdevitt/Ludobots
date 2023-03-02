@@ -6,8 +6,7 @@ For the final Ludobots project, I wanted to conduct an exploration into the worl
 
 This project will feature an evolutionary combat tournament between pairs of generated organisms. Rather than having limbs for locomotion, these organisms will be rooted to a platform with a single joint in the middle. This simplifies the evolutionary process and focuses it onto an organisms ability to interact and another organism. A base spinal cube will be generated, rooted by a single prismatic (joystick) joint in the middle of the platform. This will give the organism the ability to move freely on in the X and Y direction of its platform. On top of the base spinal cube will be a generated body, whose generation process will be detailed later. On top of the body will be a head cube, which will be the key to simulating combat. Inside the head cube will be a sensor neuron, which will "kill" the organism if contact between the head and another object is ever detected. A diagram of a rudimentary organism can be seen below:
 
-      <img width="357" alt="image" src="https://github.com/davidwmcdevitt/Ludobots/blob/52e87c134e5686fbf1094ca09ed89c90c715aeb7/challenger_diagram.jpeg">
-      
+![Screenshot](challenger_diagram.jpeg)
 
 In every given simulation, two organisms will be present on adjacent platforms featuring different body generations. As illustrated below (same color key applies below):
 
