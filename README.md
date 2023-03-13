@@ -1,40 +1,27 @@
-CS396 LudoBots Module 7:
+CS396 LudoBots Final Project:
 
-Grading Note:
+Concept Introduction:
 
-This assignments goal was to "expand the design space of your random creature generator to 3D." While I've done my best to adhere to the spirit of that assignment, these are not necessarily going to be 3D generated snakes. Instead, these are going to be randomly generated tardigrades, which are insect like creatures that are meant to be one of multiple entities present in my final project. I have done my best to preserve the "randomness" of their body structure for the sake of this assignment, but the goal of the work this week was to explore some of its key behaviors for the project. If any of the spirit of the assignment is not being met, let me know and I'd be happy to update.
+For the final Ludobots project, I wanted to conduct an exploration into the world of antagonistic evolution. Up until this point, all tasks that we have optimized for over the course of simulations have been independent linear tasks, such as walking motions based on a defined phenotype or randomly generated bodies capable of moving in a certain manner. While this does represent what likely occurred during the earliest stages of organic evolution (i.e., the evolutionary path between single celled organisms, not all outcomes and convergences on features in organic evolution were a result of independent linear tasks. Many of the features that most prominently define the phenotypes of organisms that we see around us are the result of antagonistic evolution - they are the product of competition between an organism and its environmental hazards. 
 
-1. Summary
+This project will feature an evolutionary combat tournament between pairs of generated organisms. Rather than having limbs for locomotion, these organisms will be rooted to a platform with a single joint in the middle. This simplifies the evolutionary process and focuses it onto an organisms ability to interact and another organism. A base spinal cube will be generated, rooted by a single prismatic (joystick) joint in the middle of the platform. This will give the organism the ability to move freely on in the X and Y direction of its platform. On top of the base spinal cube will be a generated body, whose generation process will be detailed later. On top of the body will be a head cube, which will be the key to simulating combat. Inside the head cube will be a sensor neuron, which will "kill" the organism if contact between the head and another object is ever detected. A diagram of a rudimentary organism can be seen below:
 
-      a. Body
+![Screenshot](challenger_diagram.jpeg)
 
-      A tardigrade is a randomly generated insect-like creature that will be evolving attraction/avoidance behavior from a predator in my final project. Their  body consists of head, which contains a sensor, a randomly generated number of body links, and the random presence of legs or no legs on that body link. The legs of a respective body link always generate in perpindicular pairs, and consist of two segments connected at a fixed right angle. When no legs are present on a particular link, a sensor is placed on that link. In the future, that sensor will contain an "eye" that allows the tardigrade to check its position against a "predator" foreign body through the location of a designated link. At the moment, the fitness function of the tardigrade is a function of the amount of time spent standing before death (see below) and the amount of distance traveled from spawn loaction.
-      
-      Examples of tardigrade bodies:
-      
-      <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235113-8b4e5d8b-955c-49f5-b118-1d924bbcedfc.png">
-      
-      <img width="357" alt="image" src="https://user-images.githubusercontent.com/31931152/220235250-4055d155-cbcc-402b-9877-3308f0fe0b74.png">
+In every given simulation, two organisms will be present on adjacent platforms featuring different body generations. As illustrated below (same color key applies below):
 
+![Screenshot](matchup_example.jpeg)
 
-      b. Brain and Movement
+The evolved behavior will be a combat simulation between the two organisms in a given simulation. At the beginning of a simulation, both organisms will begin moving until one organism "kills" another by making contact with its head (or a predetermined time cap is reached). 
 
-    A tardigrade's brain consists of a sensor neuron in its head, and sensor neurons in the outer segment of each of its legs (its "foot"). Unlike previous simulations, the tardigrade's legs move in constant sinusoidal motion. A sinusoidal wave with amplitude equal to the maximum joint angle is generated and divided into walking steps. At each step-interval, the angle of a joint is designated as the value of a given step on the sinusoidal wave. Here is a plot showing the angle.
+Selection:
 
-     ![image](https://user-images.githubusercontent.com/31931152/220223503-ea92d8e3-26c7-43d8-a149-1f039dd33f15.png)
+Selection will be determined by a round robin tournament of all pairwise combinations of organisms in a population. Points will be awarded based on the outcome of each pairwise matchup. The point system will be structured in a manner that awards a victorious simulation over surviving until the time cap, but will award survival to the end over defeat (similar to the win, loss, tie point system utilized in typical round robin tournaments like the World Cup). Once all pairwise matchups have been completed, the top organisms will move on to the next generation, which will include mutations and newly instantiated organisms. 
 
-    At the next step-interval in the simulations sequence, the angle of the joint is designated to be X number of steps away from the original point. The plot below has a second point that is 5 steps away from the original point.
+Pyrosim Considerations HW8 Exploration:
 
-     ![image](https://user-images.githubusercontent.com/31931152/220222546-509ba4bb-ee03-4ceb-8443-39847740339a.png)
-
-    The purpose for this design is to ensure that tardigrade's legs are constantly moving in a walking motion. Input from the tardigrade's brain is incorporated into the tardigrade's movement by the pace at which the angle moves along (in a positive or negative direction) the x-axis of the sinusoidal wave. If a neuron is delivering a small positive value, the legs will move along the sinusoidal wave at a slow pace. If a neuron is delivering a large positive value, the legs will move along sinusoidal wave at a faster pace. If a neuron is delivering a negative value, the legs will move backwards along the sinusoidal wave at a pace corresponding. In combination, this allows each leg of the tardigrade to move in a forward or backwards motion in a manner that corresponds to forwards or backwards walking behavior. The purpose for this design is to allow for external sensors to influence walking behavior without undermining the core ability of a tardigrade to walk. 
-    
-    Video of evolved tardigrade walking: https://youtu.be/TNA-IDKolBk
-    
-    c. Death
-    
-    A large part of the exploration in this stage had to do with the the manner at which the tardigrade is able to interact with the environment around it. This allowed me to build in the feature for a tardigrade to deactivate - or - to use a more lifelike nomenclature - a tardigrade can die. Death is triggered by a new function that checks the sensor value of the head at a given step-interval. If the head is making contact with anything other than its own body, it triggers the mechanism that "kills" the robot ("killing" the robot is completed by freezing all motors, leaving it inert until the end of the simulation). At the moment, this encourages the act of upright walking, rather than flailing around wildly to generate movement away from a spawn point. For the final project, this "kill" switch will be used to trigger death by proximity to some other object, or , a "predator."
-    
-    Video of a tardigrade's "death" mechanism being triggered: https://youtu.be/RoqIM0av1aI 
-
+The HW8 exploration will be dedicated to developing a parallel combat system in Pyrosim. The primary challenge to overcome would be the fact that having two independent organisms inside a single simulation is not intuitive in the current Pyrosim structure. However, it would be possible to simulate this scenario with a single bilateral organism, as long as two statements remain true throughout the simulation:
+1. Two "fitness" values will be recorded in a simulation, one for each organism's evaluation
+2. The brain from one organism involves only interactions between an organisms own sensor and motor neurons
+	- The current brain state of Pyrosim is a [Number of Sensors] x [Number of Motors] matrix, so that every sensor and motor combination has a weight to their interaction. A potential solution would be to reshape the brain to resemble two matrices appended to one another, and to develop a new system of "thinking" to ensure the proper lookup indices are being made. 
 
