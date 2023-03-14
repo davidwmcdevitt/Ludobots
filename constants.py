@@ -1,6 +1,6 @@
 import numpy as np 
 
-iterations = 1000
+iterations = 1000000
 
 amplitude_fl = np.pi*2
 frequency_fl = 10

@@ -11,6 +11,25 @@ class MATERIAL:
             self.string1 = '<material name="Green">'
     
             self.string2 = '    <color rgba="0 1.0 0 1.0"/>'
+            
+        elif col == "white":
+        
+            self.string1 = '<material name="White">'
+    
+            self.string2 = '    <color rgba="1.0 1.0 1.0 1.0"/>'
+            
+        elif col == "red":
+        
+            self.string1 = '<material name="Red">'
+    
+            self.string2 = '    <color rgba="1.0 0.5 0 1.0"/>'
+            
+        elif col == "purple":
+        
+            self.string1 = '<material name="Purple">'
+    
+            self.string2 = '    <color rgba="0.5 0.25 0.75 1.0"/>'
+            
         else:
         
             self.string1 = '<material name="Cyan">'

@@ -246,3 +246,8 @@ def Start_Model(modelName,pos):
     model = MODEL(modelName,pos)
 
     model.Save_Start_Tag(f)
+    
+    
+def Send_Hidden_Neuron(name):
+
+    f.write(' <neuron name = "' + str(name) + '" type = "hidden" />\n')
