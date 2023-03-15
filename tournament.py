@@ -557,7 +557,7 @@ gen = 0
 mutation_type = "LSTM"
 #mutation_type = "Simple"
 
-for i in range(0):     
+for i in range(1000):     
     print("Round" + str(i))
     
     leftroot_neuron, rightroot_neuron, leftHead_index, rightHead_index = build_challenger(left_dna, right_dna)
