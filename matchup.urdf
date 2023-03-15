@@ -54,17 +54,17 @@
        <parent link="RootLeft"/>
        <child  link="SpineBaseLeft"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="1 1 0"/>
+     <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="SpineBaseLeft">
         <inertial>
-            <origin xyz="0 5 0.75" rpy="0 0 0"/>
+            <origin xyz="0 2.5 0.75" rpy="0 0 0"/>
             <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0 5 0.75" rpy="0 0 0"/>
+            <origin xyz="0 2.5 0.75" rpy="0 0 0"/>
             <geometry>
                 <box size="1 1 0.5" />
             </geometry>
@@ -73,7 +73,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 5 0.75" rpy="0 0 0"/>
+            <origin xyz="0 2.5 0.75" rpy="0 0 0"/>
             <geometry>
                 <box size="1 1 0.5" />
             </geometry>
@@ -82,8 +82,8 @@
     <joint name="SpineBaseLeft_Spine0Left" type="revolute">
        <parent link="SpineBaseLeft"/>
        <child  link="Spine0Left"/>
-       <origin rpy="0 0 0" xyz="0 5 0.5" />
-     <axis xyz="0 1 0"/>
+       <origin rpy="0 0 0" xyz="0 2.5 0.5" />
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine0Left">
@@ -112,7 +112,7 @@
        <parent link="Spine0Left"/>
        <child  link="Spine1Left"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine1Left">
@@ -141,7 +141,7 @@
        <parent link="Spine1Left"/>
        <child  link="Spine2Left"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine2Left">
@@ -170,7 +170,7 @@
        <parent link="Spine2Left"/>
        <child  link="Spine3Left"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine3Left">
@@ -199,7 +199,7 @@
        <parent link="Spine3Left"/>
        <child  link="Spine4Left"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine4Left">
@@ -315,7 +315,7 @@
        <parent link="Spine4Left"/>
        <child  link="ArmLeftArm0Left"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm0Left">
@@ -344,7 +344,7 @@
        <parent link="ArmLeftArm0Left"/>
        <child  link="ArmLeftArm1Left"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm1Left">
@@ -373,7 +373,7 @@
        <parent link="ArmLeftArm1Left"/>
        <child  link="ArmLeftArm2Left"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm2Left">
@@ -402,7 +402,7 @@
        <parent link="ArmLeftArm2Left"/>
        <child  link="ArmLeftArm3Left"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm3Left">
@@ -431,7 +431,7 @@
        <parent link="ArmLeftArm3Left"/>
        <child  link="ArmLeftArm4Left"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm4Left">
@@ -489,7 +489,7 @@
        <parent link="Spine4Left"/>
        <child  link="ArmRightArm0Left"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm0Left">
@@ -518,7 +518,7 @@
        <parent link="ArmRightArm0Left"/>
        <child  link="ArmRightArm1Left"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm1Left">
@@ -547,7 +547,7 @@
        <parent link="ArmRightArm1Left"/>
        <child  link="ArmRightArm2Left"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm2Left">
@@ -576,7 +576,7 @@
        <parent link="ArmRightArm2Left"/>
        <child  link="ArmRightArm3Left"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm3Left">
@@ -605,7 +605,7 @@
        <parent link="ArmRightArm3Left"/>
        <child  link="ArmRightArm4Left"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm4Left">
@@ -692,17 +692,17 @@
        <parent link="RootRight"/>
        <child  link="SpineBaseRight"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="1 1 0"/>
+     <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="SpineBaseRight">
         <inertial>
-            <origin xyz="0 -5 0.75" rpy="0 0 0"/>
+            <origin xyz="0 -2.5 0.75" rpy="0 0 0"/>
             <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0 -5 0.75" rpy="0 0 0"/>
+            <origin xyz="0 -2.5 0.75" rpy="0 0 0"/>
             <geometry>
                 <box size="1 1 0.5" />
             </geometry>
@@ -711,7 +711,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 -5 0.75" rpy="0 0 0"/>
+            <origin xyz="0 -2.5 0.75" rpy="0 0 0"/>
             <geometry>
                 <box size="1 1 0.5" />
             </geometry>
@@ -720,8 +720,8 @@
     <joint name="SpineBaseRight_Spine0Right" type="revolute">
        <parent link="SpineBaseRight"/>
        <child  link="Spine0Right"/>
-       <origin rpy="0 0 0" xyz="0 -5 0.5" />
-     <axis xyz="0 1 0"/>
+       <origin rpy="0 0 0" xyz="0 -2.5 0.5" />
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine0Right">
@@ -750,7 +750,7 @@
        <parent link="Spine0Right"/>
        <child  link="Spine1Right"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine1Right">
@@ -779,7 +779,7 @@
        <parent link="Spine1Right"/>
        <child  link="Spine2Right"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine2Right">
@@ -808,7 +808,7 @@
        <parent link="Spine2Right"/>
        <child  link="Spine3Right"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine3Right">
@@ -837,7 +837,7 @@
        <parent link="Spine3Right"/>
        <child  link="Spine4Right"/>
        <origin rpy="0 0 0" xyz="0 0 1" />
-     <axis xyz="0 1 0"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="Spine4Right">
@@ -953,7 +953,7 @@
        <parent link="Spine4Right"/>
        <child  link="ArmLeftArm0Right"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm0Right">
@@ -982,7 +982,7 @@
        <parent link="ArmLeftArm0Right"/>
        <child  link="ArmLeftArm1Right"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm1Right">
@@ -1011,7 +1011,7 @@
        <parent link="ArmLeftArm1Right"/>
        <child  link="ArmLeftArm2Right"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm2Right">
@@ -1040,7 +1040,7 @@
        <parent link="ArmLeftArm2Right"/>
        <child  link="ArmLeftArm3Right"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm3Right">
@@ -1069,7 +1069,7 @@
        <parent link="ArmLeftArm3Right"/>
        <child  link="ArmLeftArm4Right"/>
        <origin rpy="0 0 0" xyz="1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmLeftArm4Right">
@@ -1127,7 +1127,7 @@
        <parent link="Spine4Right"/>
        <child  link="ArmRightArm0Right"/>
        <origin rpy="0 0 0" xyz="0 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm0Right">
@@ -1156,7 +1156,7 @@
        <parent link="ArmRightArm0Right"/>
        <child  link="ArmRightArm1Right"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm1Right">
@@ -1185,7 +1185,7 @@
        <parent link="ArmRightArm1Right"/>
        <child  link="ArmRightArm2Right"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm2Right">
@@ -1214,7 +1214,7 @@
        <parent link="ArmRightArm2Right"/>
        <child  link="ArmRightArm3Right"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm3Right">
@@ -1243,7 +1243,7 @@
        <parent link="ArmRightArm3Right"/>
        <child  link="ArmRightArm4Right"/>
        <origin rpy="0 0 0" xyz="-1 0 0" />
-     <axis xyz="1 1 1"/>
+     <axis xyz="1 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="ArmRightArm4Right">
