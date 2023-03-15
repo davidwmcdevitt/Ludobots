@@ -5,7 +5,8 @@ Video: https://youtu.be/AtawNtpbnRk
 Paper: https://docs.google.com/document/d/1wgFAZfvZ8TzQfgELJyZFmUiA8rr4QYfzaeDfMWdvLfU/edit?usp=sharing 
 
 Teaser Gif:
-![ Alt text](experimental. gif) / ! [](experimental. gif)
+
+![Alt text](experimental.gif) / ! [](experimental.gif)
 
 How to run:
 
